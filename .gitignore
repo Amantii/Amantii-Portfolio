@@ -1,0 +1,31 @@
+# Maven build output
+backend/target/
+
+# Java
+*.class
+*.jar
+*.war
+
+# IDE
+.idea/
+*.iml
+.vscode/
+.cursor/
+*.swp
+*.swo
+
+# Node / Angular (for when frontend is added)
+frontend/node_modules/
+frontend/dist/
+frontend/.angular/
+
+# Environment / secrets
+.env
+*.env.local
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
