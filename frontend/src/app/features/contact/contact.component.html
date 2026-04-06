@@ -64,19 +64,19 @@
           <!-- Submit -->
           <button
             (click)="onSubmit()"
-            [disabled]="sendingStatus.SENDING === status"
+            [disabled]="status() === STATUS.SENDING"
             class="w-full py-3 rounded-xl text-[15px] font-semibold text-white transition-all duration-300 hover:scale-[1.02] disabled:opacity-60 disabled:cursor-not-allowed"
             style="background: linear-gradient(135deg, #2563EB, #7C3AED); box-shadow: 0 4px 24px rgba(37,99,235,0.32)">
-            {{ status === sendingStatus.SENDING ? 'Sending...' : 'Send Message' }}
+            {{ status() === STATUS.SENDING ? 'Sending...' : 'Send Message' }}
           </button>
   
           <!-- Feedback messages -->
-          @if (status === sendingStatus.SUCCESS) {
+          @if (status() === STATUS.SUCCESS) {
             <p class="text-center text-[14px] font-medium" style="color: #16A34A">
               ✓ Message sent! I'll get back to you soon.
             </p>
           }
-          @if (status === sendingStatus.ERROR) {
+          @if (status() === STATUS.ERROR) {
             <p class="text-center text-[14px] font-medium" style="color: #DC2626">
               Something went wrong. Try emailing me directly.
             </p>

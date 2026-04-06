@@ -13,9 +13,9 @@ import { STATUS } from '../../core/enums/status.enum';
 })
 export class ContactComponent {
 
-  form = signal<ContactForm>({ fromName: '', fromEmail: '', message: '' });
-  status = signal<STATUS>(STATUS.IDLE);
-  readonly sendingStatus = STATUS;
+  form: ContactForm = { fromName: '', fromEmail: '', message: '' };
+  readonly status = signal<STATUS>(STATUS.IDLE);
+  readonly STATUS = STATUS;
 
   async onSubmit() {
     this.status.set(STATUS.SENDING);
@@ -24,14 +24,14 @@ export class ContactComponent {
         environment.emailJs.serviceId,
         environment.emailJs.templateId,
         {
-          from_name: this.form().fromName,
-          from_email: this.form().fromEmail,
-          message: this.form().message,
+          from_name: this.form.fromName,
+          from_email: this.form.fromEmail,
+          message: this.form.message,
         },
         environment.emailJs.publicKey
       );
       this.status.set(STATUS.SUCCESS);
-      this.form.set({ fromName: '', fromEmail: '', message: '' });
+      this.form = { fromName: '', fromEmail: '', message: '' };
     } catch {
       this.status.set(STATUS.ERROR);
     }
