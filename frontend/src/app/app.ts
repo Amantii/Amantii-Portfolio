@@ -11,5 +11,6 @@ export class App {
   protected readonly navItems = [
     { label: 'Projects', path: '/projects' },
     { label: 'Experience', path: '/experience' },
+    { label: 'Contact', path: '/contact' },
   ];
 }

@@ -1,73 +1,163 @@
-<!-- Hero -->
-<section class="relative min-h-[88vh] flex flex-col justify-center px-6 max-w-6xl mx-auto overflow-hidden">
+<!-- ─── Hero ──────────────────────────────────────────────── -->
+<section class="relative min-h-[90vh] flex flex-col justify-center px-6 max-w-6xl mx-auto overflow-hidden">
 
-  <!-- Ambient color glows -->
-  <div class="pointer-events-none absolute -top-32 -left-32 w-[520px] h-[520px] rounded-full blur-3xl opacity-25"
-       style="background: radial-gradient(circle, #0066FF 0%, transparent 70%)"></div>
-  <div class="pointer-events-none absolute -bottom-24 right-0 w-[400px] h-[400px] rounded-full blur-3xl opacity-20"
-       style="background: radial-gradient(circle, #FF5C28 0%, transparent 70%)"></div>
+  <!-- Animated floating orbs — four independent paths -->
+  <div class="pointer-events-none absolute -top-24 -left-24 w-[620px] h-[620px] rounded-full opacity-30 animate-float-a"
+       style="background: radial-gradient(circle, #2563EB 0%, transparent 65%); filter: blur(52px)"></div>
+  <div class="pointer-events-none absolute -top-8 right-4 w-[380px] h-[380px] rounded-full opacity-22 animate-float-b"
+       style="background: radial-gradient(circle, #7C3AED 0%, transparent 65%); filter: blur(40px)"></div>
+  <div class="pointer-events-none absolute -bottom-16 -right-20 w-[520px] h-[520px] rounded-full opacity-25 animate-float-c"
+       style="background: radial-gradient(circle, #F97316 0%, transparent 65%); filter: blur(46px)"></div>
+  <div class="pointer-events-none absolute bottom-24 -left-8 w-[280px] h-[280px] rounded-full opacity-18 animate-float-d"
+       style="background: radial-gradient(circle, #0D9488 0%, transparent 65%); filter: blur(36px)"></div>
 
-  <div class="relative animate-fade-up">
-    <p
-      class="text-[13px] font-semibold text-accent tracking-[0.12em] uppercase mb-6"
-      style="animation-delay: 0s">
-      Senior Software Engineer &nbsp;·&nbsp; Charlotte, NC
-    </p>
+  <!-- Content -->
+  <div class="relative">
+
+    <!-- Badge pill -->
+    <div class="animate-fade-up" style="animation-delay: 0s">
+      <span class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-[12px] font-semibold tracking-[0.10em] uppercase border mb-8"
+            style="background: rgba(37,99,235,0.07); border-color: rgba(37,99,235,0.22); color: #2563EB">
+        Senior Software Engineer &nbsp;·&nbsp; Charlotte, NC
+      </span>
+    </div>
+
+    <!-- Name -->
     <h1
       class="text-[clamp(52px,9vw,96px)] font-extrabold tracking-[-0.03em] leading-[0.95] mb-8 animate-fade-up"
-      style="animation-delay: 0.08s; background: linear-gradient(135deg, #1D1D1F 0%, #1D1D1F 45%, #0066FF 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">
+      style="animation-delay: 0.08s;
+             background: linear-gradient(135deg, #0F172A 0%, #2563EB 42%, #7C3AED 70%, #F97316 100%);
+             -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">
       Amantii<br>Samson
     </h1>
+
+    <!-- Subtitle -->
     <p
-      class="text-[18px] text-apple-gray max-w-[480px] leading-relaxed animate-fade-up"
-      style="animation-delay: 0.16s">
+      class="text-[18px] max-w-[520px] leading-relaxed mb-10 animate-fade-up"
+      style="animation-delay: 0.16s; color: #475569">
       Building enterprise-scale software. Angular + Spring Boot + PostgreSQL.
       Currently at General Motors.
     </p>
+
+    <!-- CTAs -->
+    <div class="flex flex-wrap gap-4 animate-fade-up" style="animation-delay: 0.24s">
+      <a
+        routerLink="/projects"
+        class="inline-flex items-center gap-2 px-6 py-3 rounded-xl text-[15px] font-semibold text-white transition-all duration-300 hover:scale-[1.03] cursor-pointer"
+        style="background: linear-gradient(135deg, #2563EB, #7C3AED); box-shadow: 0 4px 24px rgba(37,99,235,0.32)">
+        View Projects &#8594;
+      </a>
+      <a
+        routerLink="/experience"
+        class="inline-flex items-center gap-2 px-6 py-3 rounded-xl text-[15px] font-semibold transition-all duration-300 hover:scale-[1.03] cursor-pointer border"
+        style="color: #0F172A; border-color: rgba(37,99,235,0.28); background: rgba(37,99,235,0.05)">
+        My Experience
+      </a>
+      <a href="../../../../public/resume.docx" download="Amantii_Samson_Resume.docx" 
+        class="inline-flex items-center gap-2 px-6 py-3 rounded-xl text-[15px] font-semibold transition-all duration-300 hover:scale-[1.03]               │
+        │ cursor-pointer border" 
+          style="color: #0F172A; border-color: rgba(226,232,240,0.9); background: #ffffff">
+          &#8595; Résumé
+      </a>
+    </div>
+
   </div>
 </section>
 
-<!-- Section preview cards -->
-<section class="bg-apple-light py-24 px-6">
+<!-- ─── About ────────────────────────────────────────────── -->
+<section class="py-24 px-6 border-t border-slate-200/40">
+  <div class="max-w-6xl mx-auto grid md:grid-cols-[200px_1fr] gap-10 md:gap-20">
+
+    <!-- Label -->
+    <div class="shrink-0">
+      <p class="text-[13px] font-semibold tracking-widest uppercase" style="color: #94A3B8">About</p>
+    </div>
+
+    <!-- Content -->
+    <div>
+      <p class="text-[18px] leading-[1.75] mb-6" style="color: #1E293B">
+        I started my career writing tests and breaking things on purpose — and I've been building
+        better ones ever since. Over the past five years at General Motors, I've grown from a
+        Software Engineer in Test into a Senior Software Engineer leading frontend architecture
+        across enterprise platforms serving thousands of users worldwide.
+      </p>
+      <p class="text-[18px] leading-[1.75] mb-6" style="color: #1E293B">
+        I specialize in Angular, Java/Spring Boot, and AI integrations, and I care deeply about
+        writing code that scales, mentoring engineers who are earlier in their journey, and shipping
+        things that actually work.
+      </p>
+      <p class="text-[18px] leading-[1.75]" style="color: #1E293B">
+        When I'm not at GM, I'm working on projects that sit at the intersection of tech and access
+        — most recently
+        <span class="font-semibold" style="background: linear-gradient(135deg, #2563EB, #7C3AED); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">
+          Court Companion
+        </span>,
+        a RAG-based legal guidance app built to level the playing field for everyday people in court.
+      </p>
+    </div>
+
+  </div>
+</section>
+
+<!-- ─── Explore cards ─────────────────────────────────────── -->
+<section class="py-24 px-6">
   <div class="max-w-6xl mx-auto">
-    <p class="text-[13px] font-semibold text-apple-gray tracking-widest uppercase mb-10">Explore</p>
+
+    <p class="text-[13px] font-semibold tracking-widest uppercase mb-10" style="color: #94A3B8">Explore</p>
+
     <div class="grid md:grid-cols-2 gap-5">
 
-      <!-- Experience card — blue identity -->
+      <!-- Experience — deep blue gradient fill -->
       <a
         routerLink="/experience"
-        class="group bg-white rounded-3xl overflow-hidden border border-apple-border/50 hover:border-apple-border hover:shadow-xl transition-all duration-300 cursor-pointer block">
-        <div class="h-1.5 w-full" style="background: linear-gradient(90deg, #0066FF, #338BFF)"></div>
-        <div class="p-10">
-          <div class="mb-6 w-10 h-10 rounded-2xl flex items-center justify-center text-white text-lg transition-all duration-300"
-               style="background: linear-gradient(135deg, #0066FF, #338BFF)">
+        class="group relative overflow-hidden rounded-3xl cursor-pointer block transition-all duration-300 hover:scale-[1.02]"
+        style="background: linear-gradient(135deg, #1E3A8A 0%, #2563EB 55%, #4F46E5 100%);
+               box-shadow: 0 4px 32px rgba(37,99,235,0.25)">
+
+        <!-- Moving shimmer highlight on hover -->
+        <div class="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"
+             style="background: linear-gradient(105deg, transparent 35%, rgba(255,255,255,0.10) 50%, transparent 65%);
+                    background-size: 200% 100%;
+                    animation: shimmer 2.4s linear infinite"></div>
+
+        <div class="p-10 relative">
+          <div class="mb-6 w-12 h-12 rounded-2xl flex items-center justify-center text-xl text-white"
+               style="background: rgba(255,255,255,0.15); backdrop-filter: blur(8px)">
             &#x2713;
           </div>
-          <h2 class="text-[22px] font-bold text-apple-black mb-2 tracking-tight">Experience</h2>
-          <p class="text-[15px] text-apple-gray leading-relaxed">
+          <h2 class="text-[24px] font-bold text-white mb-3 tracking-tight">Experience</h2>
+          <p class="text-[15px] leading-relaxed" style="color: rgba(255,255,255,0.72)">
             Enterprise Angular frontends, Spring Boot APIs, and CI/CD pipelines — at scale.
           </p>
-          <span class="inline-flex items-center gap-1.5 mt-6 text-[14px] font-semibold text-accent group-hover:gap-3 transition-all duration-200">
+          <span class="inline-flex items-center gap-1.5 mt-8 text-[14px] font-semibold text-white group-hover:gap-3 transition-all duration-200">
             View experience <span aria-hidden="true">&#8594;</span>
           </span>
         </div>
       </a>
 
-      <!-- Projects card — warm orange identity -->
+      <!-- Projects — orange/red gradient fill -->
       <a
         routerLink="/projects"
-        class="group bg-white rounded-3xl overflow-hidden border border-apple-border/50 hover:border-apple-border hover:shadow-xl transition-all duration-300 cursor-pointer block">
-        <div class="h-1.5 w-full" style="background: linear-gradient(90deg, #FF5C28, #FF8A5C)"></div>
-        <div class="p-10">
-          <div class="mb-6 w-10 h-10 rounded-2xl flex items-center justify-center text-white text-lg transition-all duration-300"
-               style="background: linear-gradient(135deg, #FF5C28, #FF8A5C)">
+        class="group relative overflow-hidden rounded-3xl cursor-pointer block transition-all duration-300 hover:scale-[1.02]"
+        style="background: linear-gradient(135deg, #7C2D12 0%, #F97316 55%, #EF4444 100%);
+               box-shadow: 0 4px 32px rgba(249,115,22,0.25)">
+
+        <!-- Moving shimmer highlight on hover -->
+        <div class="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"
+             style="background: linear-gradient(105deg, transparent 35%, rgba(255,255,255,0.10) 50%, transparent 65%);
+                    background-size: 200% 100%;
+                    animation: shimmer 2.4s linear infinite"></div>
+
+        <div class="p-10 relative">
+          <div class="mb-6 w-12 h-12 rounded-2xl flex items-center justify-center text-xl text-white"
+               style="background: rgba(255,255,255,0.15); backdrop-filter: blur(8px)">
             &#x25A2;
           </div>
-          <h2 class="text-[22px] font-bold text-apple-black mb-2 tracking-tight">Projects</h2>
-          <p class="text-[15px] text-apple-gray leading-relaxed">
+          <h2 class="text-[24px] font-bold text-white mb-3 tracking-tight">Projects</h2>
+          <p class="text-[15px] leading-relaxed" style="color: rgba(255,255,255,0.72)">
             Side projects spanning AI legal guidance, affordable housing platforms, and more.
           </p>
-          <span class="inline-flex items-center gap-1.5 mt-6 text-[14px] font-semibold text-accent-warm group-hover:gap-3 transition-all duration-200">
+          <span class="inline-flex items-center gap-1.5 mt-8 text-[14px] font-semibold text-white group-hover:gap-3 transition-all duration-200">
             View projects <span aria-hidden="true">&#8594;</span>
           </span>
         </div>
@@ -77,10 +167,38 @@
   </div>
 </section>
 
-<!-- Footer -->
-<footer class="py-10 px-6 border-t border-apple-border/60">
+<!-- ─── Skills ───────────────────────────────────────────── -->
+<section class="py-24 px-6 border-t border-slate-200/40">
+  <div class="max-w-6xl mx-auto">
+
+    <p class="text-[13px] font-semibold tracking-widest uppercase mb-10" style="color: #94A3B8">Tech Stack</p>
+
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-10">
+
+      @for (group of techStack(); track group.category) {
+        <div>
+          <p class="text-[11px] font-semibold tracking-widest uppercase mb-4" style="color: #CBD5E1">
+            {{ group.category }}
+          </p>
+          <div class="flex flex-col gap-3">
+            @for (skill of group.skills; track skill.name) {
+              <div class="inline-flex items-center gap-2.5 text-[14px] font-medium" style="color: #1E293B">
+                <i [class]="skill.icon + ' colored'" style="font-size: 1.1rem"></i>
+                {{ skill.name }}
+              </div>
+            }
+          </div>
+        </div>
+      }
+
+    </div>
+  </div>
+</section>
+
+<!-- ─── Footer ───────────────────────────────────────────── -->
+<footer class="py-10 px-6 border-t border-slate-200/60">
   <div class="max-w-6xl mx-auto flex items-center justify-between">
-    <p class="text-[13px] text-apple-gray">© 2025 Amantii Samson</p>
-    <p class="text-[13px] text-apple-gray">Charlotte, NC</p>
+    <p class="text-[13px]" style="color: #94A3B8">© 2026 Amantii Samson</p>
+    <p class="text-[13px]" style="color: #94A3B8">Charlotte, NC</p>
   </div>
 </footer>

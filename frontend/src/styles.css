@@ -4,35 +4,128 @@
 @theme {
   --font-sans: 'Bricolage Grotesque', sans-serif;
 
-  --color-apple-black: #1D1D1F;
-  --color-apple-gray: #6E6E73;
-  --color-apple-light: #F5F5F7;
-  --color-apple-border: #D2D2D7;
-  --color-accent: #0066FF;
-  --color-accent-warm: #FF5C28;
+  /* Vibrant, professional palette */
+  --color-ink:           #0F172A;
+  --color-ink-muted:     #475569;
+  --color-blue:          #2563EB;
+  --color-blue-light:    #60A5FA;
+  --color-violet:        #7C3AED;
+  --color-violet-light:  #A78BFA;
+  --color-orange:        #F97316;
+  --color-orange-light:  #FB923C;
+  --color-teal:          #0D9488;
+  --color-surface:       #F8FAFC;
+  --color-border:        #E2E8F0;
+  --color-muted:         #94A3B8;
 
-  --animate-fade-up: fadeUp 0.75s cubic-bezier(0.16, 1, 0.3, 1) both;
+  /* Legacy aliases so existing classes still compile */
+  --color-apple-black:  #0F172A;
+  --color-apple-gray:   #475569;
+  --color-apple-light:  #F8FAFC;
+  --color-apple-border: #E2E8F0;
+  --color-accent:       #2563EB;
+  --color-accent-warm:  #F97316;
+
+  /* Named animation tokens */
+  --animate-fade-up:   fadeUp  0.6s cubic-bezier(0.16, 1, 0.3, 1) both;
+  --animate-scale-in:  scaleIn 0.5s cubic-bezier(0.16, 1, 0.3, 1) both;
+  --animate-float-a:   floatA  9s  ease-in-out infinite;
+  --animate-float-b:   floatB  7s  ease-in-out infinite;
+  --animate-float-c:   floatC  11s ease-in-out infinite;
+  --animate-float-d:   floatD  8s  ease-in-out infinite;
+  --animate-shimmer:   shimmer 2.4s linear infinite;
 }
+
+/* ─── Keyframes ─────────────────────────────────────────── */
 
 @keyframes fadeUp {
-  from {
-    opacity: 0;
-    transform: translateY(22px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  from { opacity: 0; transform: translateY(22px); }
+  to   { opacity: 1; transform: translateY(0);    }
 }
+
+@keyframes scaleIn {
+  from { opacity: 0; transform: scale(0.94) translateY(16px); }
+  to   { opacity: 1; transform: scale(1)    translateY(0);    }
+}
+
+/* Four independent float paths so orbs move differently */
+@keyframes floatA {
+  0%,100% { transform: translate(  0px,   0px) scale(1.00); }
+  25%     { transform: translate( 30px, -40px) scale(1.06); }
+  60%     { transform: translate(-20px, -18px) scale(0.96); }
+  80%     { transform: translate( 15px, -50px) scale(1.04); }
+}
+@keyframes floatB {
+  0%,100% { transform: translate(  0px,  0px) scale(1.00); }
+  25%     { transform: translate(-35px, 28px) scale(1.05); }
+  55%     { transform: translate( 25px, 40px) scale(0.95); }
+  75%     { transform: translate(-14px, 16px) scale(1.03); }
+}
+@keyframes floatC {
+  0%,100% { transform: translate(  0px,  0px) scale(1.00); }
+  20%     { transform: translate( 22px,-32px) scale(1.05); }
+  50%     { transform: translate(-28px, 22px) scale(0.97); }
+  70%     { transform: translate( 10px,-42px) scale(1.03); }
+}
+@keyframes floatD {
+  0%,100% { transform: translate(  0px,  0px) scale(1.00); }
+  35%     { transform: translate(-26px,-34px) scale(1.06); }
+  65%     { transform: translate( 20px, 26px) scale(0.94); }
+  85%     { transform: translate(-10px,-20px) scale(1.03); }
+}
+
+@keyframes shimmer {
+  from { background-position: -200% center; }
+  to   { background-position:  200% center; }
+}
+
+/* ─── View Transitions (page-to-page) ───────────────────── */
+
+@keyframes vt-in  {
+  from { opacity: 0; transform: translateY(10px); }
+}
+@keyframes vt-out {
+  to   { opacity: 0; transform: translateY(-8px); }
+}
+
+::view-transition-old(root) { animation: vt-out 180ms ease-in  both; }
+::view-transition-new(root) { animation: vt-in  300ms ease-out both; }
+
+/* ─── Motion safety ─────────────────────────────────────── */
+
+@media (prefers-reduced-motion: reduce) {
+  ::view-transition-old(root),
+  ::view-transition-new(root) { animation: none; }
+
+  .animate-float-a,
+  .animate-float-b,
+  .animate-float-c,
+  .animate-float-d { animation: none !important; }
+}
+
+/* ─── Card hover glows (color-aware, static CSS) ────────── */
+
+.card-blue:hover {
+  box-shadow: 0 8px 36px rgba(37, 99, 235, 0.18);
+  border-color: rgba(37, 99, 235, 0.35) !important;
+}
+
+.card-orange:hover {
+  box-shadow: 0 8px 36px rgba(249, 115, 22, 0.18);
+  border-color: rgba(249, 115, 22, 0.35) !important;
+}
+
+/* ─── Base ───────────────────────────────────────────────── */
 
 html {
   font-family: 'Bricolage Grotesque', sans-serif;
   -webkit-font-smoothing: antialiased;
+  scroll-behavior: smooth;
   background-color: #ffffff;
-  color: #1D1D1F;
+  color: #0F172A;
 }
 
 ::selection {
-  background-color: #0066FF;
+  background-color: #2563EB;
   color: #ffffff;
 }

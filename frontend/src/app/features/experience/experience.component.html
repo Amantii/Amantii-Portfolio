@@ -1,60 +1,76 @@
-<section class="min-h-screen px-6 py-20 animate-fade-up">
+<section class="min-h-screen px-6 py-20">
+
+  <!-- Colored gradient wash behind the header -->
+  <div class="absolute top-[52px] left-0 right-0 h-64 pointer-events-none -z-10"
+       style="background: linear-gradient(180deg, rgba(37,99,235,0.06) 0%, transparent 100%)"></div>
+
   <div class="max-w-4xl mx-auto">
 
-    <p class="text-[13px] font-semibold text-accent tracking-[0.12em] uppercase mb-4">Career</p>
-    <h1 class="text-[clamp(36px,5vw,56px)] font-extrabold text-apple-black tracking-[-0.025em] leading-tight mb-20">
-      Experience
-    </h1>
+    <!-- Header -->
+    <div class="animate-fade-up">
+      <p class="text-[13px] font-semibold tracking-[0.12em] uppercase mb-4" style="color: #2563EB">Career</p>
+      <h1 class="text-[clamp(36px,5vw,56px)] font-extrabold tracking-[-0.025em] leading-tight mb-20"
+          style="background: linear-gradient(135deg, #0F172A 0%, #2563EB 50%, #7C3AED 100%);
+                 -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">
+        Experience
+      </h1>
+    </div>
 
-    @for (experience of experiences(); track experience.company + experience.startDate; let i = $index) {
-      <div class="border-t border-apple-border py-14 grid md:grid-cols-[220px_1fr] gap-8">
+    @for (experience of experience(); track experience.company + experience.startDate; let i = $index) {
 
+      <div class="border-t py-14 grid md:grid-cols-[220px_1fr] gap-8 animate-fade-up"
+           style="border-color: rgba(226,232,240,0.8)"
+           [style.animation-delay]="(i * 120) + 'ms'">
+
+        <!-- Left: dates + location + badge -->
         <div class="shrink-0">
-          <p class="text-[13px] font-medium text-apple-black">
+          <p class="text-[13px] font-semibold" style="color: #0F172A">
             {{ experience.startDate }} &ndash; {{ experience.endDate ?? presentStr }}
           </p>
-          <p class="text-[13px] text-apple-gray mt-1">{{ experience.location }}</p>
+          <p class="text-[13px] mt-1" style="color: #64748B">{{ experience.location }}</p>
 
-          <!-- Colored status pill -->
           @if (!experience.endDate) {
-            <span class="inline-block mt-3 text-[11px] font-semibold px-2.5 py-1 rounded-full text-white"
-                  style="background: linear-gradient(135deg, #0066FF, #338BFF)">
+            <span class="inline-block mt-3 text-[11px] font-bold px-3 py-1 rounded-full text-white tracking-wide"
+                  style="background: linear-gradient(135deg, #2563EB, #7C3AED)">
               Current
             </span>
           }
         </div>
 
-        <div>
-          <!-- Colored left accent bar -->
-          <div class="flex gap-5">
-            <div class="w-1 rounded-full shrink-0 self-stretch"
-                 [style.background]="i === 0 ? 'linear-gradient(180deg, #0066FF, #338BFF)' : 'linear-gradient(180deg, #FF5C28, #FF8A5C)'">
-            </div>
-            <div class="grow">
-              <h2 class="text-[22px] font-bold text-apple-black tracking-tight mb-1">
-                {{ experience.role }}
-              </h2>
-              <p class="text-[15px] font-semibold mb-8"
-                 [style.color]="i === 0 ? '#0066FF' : '#FF5C28'">
-                {{ experience.company }}
-              </p>
+        <!-- Right: role + responsibilities -->
+        <div class="flex gap-5">
 
-              <ul class="space-y-4">
-                @for (desc of experience.roleDescription; track desc) {
-                  <li class="flex gap-4 text-[15px] text-apple-black leading-relaxed">
-                    <span class="font-bold mt-[2px] shrink-0 select-none"
-                          [style.color]="i === 0 ? '#0066FF' : '#FF5C28'"
-                          aria-hidden="true">&#8212;</span>
-                    {{ desc }}
-                  </li>
-                }
-              </ul>
-            </div>
+          <!-- Vertical accent bar -->
+          <div class="w-[3px] rounded-full shrink-0 self-stretch"
+               [style.background]="i === 0
+                 ? 'linear-gradient(180deg, #2563EB, #7C3AED)'
+                 : 'linear-gradient(180deg, #F97316, #EF4444)'">
           </div>
+
+          <div class="grow">
+            <h2 class="text-[22px] font-bold tracking-tight mb-1" style="color: #0F172A">
+              {{ experience.role }}
+            </h2>
+            <p class="text-[15px] font-semibold mb-8"
+               [style.color]="i === 0 ? '#2563EB' : '#F97316'">
+              {{ experience.company }}
+            </p>
+
+            <ul class="space-y-4">
+              @for (desc of experience.roleDescription; track desc) {
+                <li class="flex gap-4 text-[15px] leading-relaxed" style="color: #1E293B">
+                  <span class="font-bold mt-[2px] shrink-0 select-none"
+                        [style.color]="i === 0 ? '#7C3AED' : '#F97316'"
+                        aria-hidden="true">&#8212;</span>
+                  {{ desc }}
+                </li>
+              }
+            </ul>
+          </div>
+
         </div>
-
       </div>
-    }
 
+    }
   </div>
 </section>
