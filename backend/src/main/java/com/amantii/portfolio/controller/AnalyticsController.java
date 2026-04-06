@@ -1,13 +1,12 @@
 package com.amantii.portfolio.controller;
 
-import java.util.Map;
-
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.amantii.portfolio.dto.PageViewDto;
 import com.amantii.portfolio.service.AnalyticsService;
 
 @RestController
@@ -20,8 +19,8 @@ public class AnalyticsController {
     }
 
     @PostMapping("/views")
-    public ResponseEntity<Void> saveView(@RequestBody Map<String, String> body) {
-        analyticsService.savePageView(body.get("path"), body.get("referrer"));
+    public ResponseEntity<Void> saveView(@RequestBody PageViewDto pageViewDto) {
+        analyticsService.savePageView(pageViewDto.getPath(), pageViewDto.getReferrer());
         return ResponseEntity.ok().build();
     }
 }

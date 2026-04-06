@@ -1,0 +1,23 @@
+<nav class="fixed top-0 left-0 right-0 z-50 bg-white/75 backdrop-blur-2xl border-b border-apple-border/60">
+  <div class="max-w-6xl mx-auto px-6 h-[52px] flex items-center justify-between">
+    <a
+      routerLink=""
+      class="text-[15px] font-semibold text-apple-black tracking-tight hover:text-accent transition-colors duration-200">
+      Amantii Samson
+    </a>
+    <div class="flex items-center gap-8">
+      @for (item of navItems; track item.path) {
+        <a
+          [routerLink]="item.path"
+          routerLinkActive="text-accent!"
+          class="text-[14px] font-medium text-apple-gray hover:text-apple-black transition-colors duration-200">
+          {{ item.label }}
+        </a>
+      }
+    </div>
+  </div>
+</nav>
+
+<main class="pt-[52px]">
+  <router-outlet />
+</main>

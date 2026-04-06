@@ -1,0 +1,86 @@
+<!-- Hero -->
+<section class="relative min-h-[88vh] flex flex-col justify-center px-6 max-w-6xl mx-auto overflow-hidden">
+
+  <!-- Ambient color glows -->
+  <div class="pointer-events-none absolute -top-32 -left-32 w-[520px] h-[520px] rounded-full blur-3xl opacity-25"
+       style="background: radial-gradient(circle, #0066FF 0%, transparent 70%)"></div>
+  <div class="pointer-events-none absolute -bottom-24 right-0 w-[400px] h-[400px] rounded-full blur-3xl opacity-20"
+       style="background: radial-gradient(circle, #FF5C28 0%, transparent 70%)"></div>
+
+  <div class="relative animate-fade-up">
+    <p
+      class="text-[13px] font-semibold text-accent tracking-[0.12em] uppercase mb-6"
+      style="animation-delay: 0s">
+      Senior Software Engineer &nbsp;·&nbsp; Charlotte, NC
+    </p>
+    <h1
+      class="text-[clamp(52px,9vw,96px)] font-extrabold tracking-[-0.03em] leading-[0.95] mb-8 animate-fade-up"
+      style="animation-delay: 0.08s; background: linear-gradient(135deg, #1D1D1F 0%, #1D1D1F 45%, #0066FF 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">
+      Amantii<br>Samson
+    </h1>
+    <p
+      class="text-[18px] text-apple-gray max-w-[480px] leading-relaxed animate-fade-up"
+      style="animation-delay: 0.16s">
+      Building enterprise-scale software. Angular + Spring Boot + PostgreSQL.
+      Currently at General Motors.
+    </p>
+  </div>
+</section>
+
+<!-- Section preview cards -->
+<section class="bg-apple-light py-24 px-6">
+  <div class="max-w-6xl mx-auto">
+    <p class="text-[13px] font-semibold text-apple-gray tracking-widest uppercase mb-10">Explore</p>
+    <div class="grid md:grid-cols-2 gap-5">
+
+      <!-- Experience card — blue identity -->
+      <a
+        routerLink="/experience"
+        class="group bg-white rounded-3xl overflow-hidden border border-apple-border/50 hover:border-apple-border hover:shadow-xl transition-all duration-300 cursor-pointer block">
+        <div class="h-1.5 w-full" style="background: linear-gradient(90deg, #0066FF, #338BFF)"></div>
+        <div class="p-10">
+          <div class="mb-6 w-10 h-10 rounded-2xl flex items-center justify-center text-white text-lg transition-all duration-300"
+               style="background: linear-gradient(135deg, #0066FF, #338BFF)">
+            &#x2713;
+          </div>
+          <h2 class="text-[22px] font-bold text-apple-black mb-2 tracking-tight">Experience</h2>
+          <p class="text-[15px] text-apple-gray leading-relaxed">
+            Enterprise Angular frontends, Spring Boot APIs, and CI/CD pipelines — at scale.
+          </p>
+          <span class="inline-flex items-center gap-1.5 mt-6 text-[14px] font-semibold text-accent group-hover:gap-3 transition-all duration-200">
+            View experience <span aria-hidden="true">&#8594;</span>
+          </span>
+        </div>
+      </a>
+
+      <!-- Projects card — warm orange identity -->
+      <a
+        routerLink="/projects"
+        class="group bg-white rounded-3xl overflow-hidden border border-apple-border/50 hover:border-apple-border hover:shadow-xl transition-all duration-300 cursor-pointer block">
+        <div class="h-1.5 w-full" style="background: linear-gradient(90deg, #FF5C28, #FF8A5C)"></div>
+        <div class="p-10">
+          <div class="mb-6 w-10 h-10 rounded-2xl flex items-center justify-center text-white text-lg transition-all duration-300"
+               style="background: linear-gradient(135deg, #FF5C28, #FF8A5C)">
+            &#x25A2;
+          </div>
+          <h2 class="text-[22px] font-bold text-apple-black mb-2 tracking-tight">Projects</h2>
+          <p class="text-[15px] text-apple-gray leading-relaxed">
+            Side projects spanning AI legal guidance, affordable housing platforms, and more.
+          </p>
+          <span class="inline-flex items-center gap-1.5 mt-6 text-[14px] font-semibold text-accent-warm group-hover:gap-3 transition-all duration-200">
+            View projects <span aria-hidden="true">&#8594;</span>
+          </span>
+        </div>
+      </a>
+
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="py-10 px-6 border-t border-apple-border/60">
+  <div class="max-w-6xl mx-auto flex items-center justify-between">
+    <p class="text-[13px] text-apple-gray">© 2025 Amantii Samson</p>
+    <p class="text-[13px] text-apple-gray">Charlotte, NC</p>
+  </div>
+</footer>
