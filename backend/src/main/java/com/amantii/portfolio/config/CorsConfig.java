@@ -12,9 +12,10 @@ public class CorsConfig implements WebMvcConfigurer {
         registry.addMapping("/api/**")
                 .allowedOrigins(
                         "http://localhost:4200",
-                        "https://amantiisamson.dev" // replace with your actual prod domain
+                        "https://amantii-portfolio.vercel.app"
                 )
-                .allowedMethods("GET", "POST")
-                .allowedHeaders("*");
+                .allowedMethods("GET", "POST", "PUT", "DELETE", "OPTIONS")
+                .allowedHeaders("*")
+                .allowCredentials(true);
     }
 }
